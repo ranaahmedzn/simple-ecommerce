@@ -4,9 +4,11 @@
     gap: 100px;
     justify-content: center;
 }
-/* .review-item-container{
-
+.review-item-container{
+    width: 610px;
 }
 .review-cart-container{
-
-} */
+    width: 451px;
+    overflow: hidden;
+    border-radius: 8px;
+}   
