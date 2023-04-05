@@ -1,0 +1,12 @@
+.order-review-container{
+    margin: 80px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+}
+/* .review-item-container{
+
+}
+.review-cart-container{
+
+} */
