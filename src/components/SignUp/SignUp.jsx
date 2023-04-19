@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import googleLogo from '../../assets/google.png'
 import facebookLogo from '../../assets/facebook.png'
-import './Login.css'
 
-const Login = () => {
-    const [show, setShow] = useState(false)
-
+const SignUp = () => {
     return (
         <div className="form-container">
-            <h3 className="form-title">Login</h3>
+            <h3 className="form-title">Sign Up</h3>
             <form>
                 <div className="form-control">
                     <label htmlFor="email">Email:</label>
@@ -19,21 +14,18 @@ const Login = () => {
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password:</label>
-                    <input type={show ? "text" : "password"} name="password" id="password" required />
-                    <span onClick={() => setShow(!show)} className='show-icon'>
-                        {
-                            show ?
-                            <FontAwesomeIcon icon={faEyeSlash} />
-                            : <FontAwesomeIcon icon={faEye} />
-                        }
-                    </span>
+                    <input type="password" name="password" id="password" required />
                 </div>
-                <input className="btn-submit" type="submit" value="Login" />
+                <div className="form-control">
+                    <label htmlFor="confirm-password">Confirm Password:</label>
+                    <input type="password" name="confirm-password" id="confirm-password" required />
+                </div>
+                <input className="btn-submit" type="submit" value="Sign Up" />
             </form>
             <p className="question">
-                New to Ema-John?{" "}
+                Already have an account? 
                 <span>
-                    <Link to="/signup">Create New Account</Link>
+                    <Link to="/login"> Login</Link>
                 </span>
             </p>
             <p className="or-line">
@@ -53,4 +45,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
