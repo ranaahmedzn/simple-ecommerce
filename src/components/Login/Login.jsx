@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../assets/google.png'
 import facebookLogo from '../../assets/facebook.png'
 import './Login.css'
@@ -12,9 +12,15 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const { signIn } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignIn = (event) => {
         event.preventDefault()
+        setError('')
+        setSuccess('')
 
         const form = event.target;
         const email = form.email.value;
@@ -26,6 +32,9 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             setSuccess("Successfully login!")
+            form.reset()
+            navigate(from)
+            
         })
         .catch(error => {
             console.log(error)
