@@ -1,0 +1,8 @@
+.error-text{
+    font-weight: 500;
+    color: rgb(241, 64, 64);
+}
+.success-text{
+    font-weight: 500;
+    color: rgb(10, 223, 10);
+}
